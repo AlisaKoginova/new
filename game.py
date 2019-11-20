@@ -90,9 +90,16 @@ class Unit:
 
 class Battle:
     @classmethod
-    def start_battle(self, unit1, unit2):
+    def start_battle(self, unit1, unit2, rand_boost):
         if isinstance(unit1, Unit) and isinstance(unit2, Unit):
             print('------------------Battle begins------------------')
+            # добавление случаного коэффициента
+            # добавление случаного коэффициента
+            # добавление случаного коэффициента
+            unit1.dmg += randint(0, rand_boost)
+            unit1.armor += randint(0, rand_boost)
+            unit2.dmg += randint(0, rand_boost)
+            unit2.armor += randint(0, rand_boost)
             while True:
                 if unit1.is_alive():
                     unit1.attack(unit2)
@@ -135,9 +142,7 @@ sword = Item('Silver sword', 10, 0)
 helmet = Item('Magic helmet', 0, 12)
 elf.wear_item(helmet)
 ogre.wear_item(sword)
-Battle.start_battle(ogre, elf)
-
-
+Battle.start_battle(ogre, elf, 10)
 
 
 
